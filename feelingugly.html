@@ -1,0 +1,119 @@
+<!doctype html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Feeling Ugly?</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    
+
+    <!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  
+  <script type="text/javascript">var switchTo5x=false;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "ur-6820997a-561d-4074-34b6-b5b247a3b706", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+
+  </head>
+  <header>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.js"></script>
+    <script language="javascript" type="text/javascript">
+      angular.module('app', []);
+      
+      //Whatever you put on the controller scope,
+      //will be availalble in the HTML element bound to the controller.
+      function MyController($scope){
+        $scope.name="";
+        $scope.newMessage = "Are you ready for the love?";
+        $scope.messages = ["You're the best, ", "We are thankful for your existence, ", "We love you, ", "I can't live without you, ", "You are amazing, ", "You are the king of the world, "];
+        $scope.counter = 0;
+        $scope.fontColor = "green";
+        $scope.fontsize = 4;
+        $scope.clickCount = 0;
+        $scope.imgUrl="http://www.hotel-harvey.com/assets/backoffice/misc/transparent.png";
+        
+        $scope.add = function(){
+          $scope.clickCount++;
+          if ($scope.clickCount % 10 == 0){
+            $scope.fontsize = 8;
+                $scope.fontColor="red";
+                $scope.newMessage = "..BUT GOD, YOU'RE UGLY!";
+                //$scope.imgUrl="http://www.militarypress.com/wp-content/uploads/2012/10/truth-for-web.jpg";
+                $scope.imgUrl="http://www.hotel-harvey.com/assets/backoffice/misc/transparent.png";
+                
+          }else if($scope.counter<5){
+                $scope.imgUrl="http://www.hotel-harvey.com/assets/backoffice/misc/transparent.png";
+                $scope.fontsize = 4;
+                $scope.fontColor="green";
+                $scope.newMessage = $scope.messages[$scope.counter] + $scope.name + "!";
+                $scope.counter++;
+              
+           }else{
+               $scope.fontsize = 4;
+               $scope.fontColor="green";
+               $scope.newMessage = $scope.messages[$scope.counter] + $scope.name + "!";
+               $scope.counter = 0;
+            }
+          };
+      }
+
+      function thanks(){
+        window.location = "thankyou.html"
+      }
+    </script>
+  </header>
+  
+  <body ng-controller="MyController" onload="checkPrev()">
+  <div id="wrap">
+
+  
+
+  <div class="wrapper">
+    <header>
+      <div id="main">
+
+  
+    <h1>Boost your self-esteem</h1>
+    
+    <p class="view">Input your name to start feeling good about yourself:</p>
+    <input type="text" ng-model="name">
+    <input type="submit" ng-click="add()" value="Go!">
+    <br>
+    <br>
+    
+    </header>
+    <section>
+    <br>
+    <h4><i><font color="{{fontColor}}" size={{fontsize}}>{{newMessage}}</font></i></h4>
+    
+    <img src="{{imgUrl}}">
+
+    
+    </section>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+
+    </div>
+</div>
+
+
+<div id="footer">
+<p class="view">Feeling better? Share the love!</p>
+<span class='st_facebook_large' onclick="thanks()"></span>
+<span class='st_twitter_large' onclick="thanks()"></span>
+<span class='st_linkedin_large' onclick="thanks()"></span>
+<span class='st_pinterest_large' onclick="thanks()"></span>
+<span class='st_email_large' onclick="thanks()"></span>
+</div>
+    
+      
+    
+
+  </body>
+  
+</html>
